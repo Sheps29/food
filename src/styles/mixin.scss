@@ -1,0 +1,39 @@
+@mixin xxs {
+  font-size: 18px;
+}
+
+@mixin xs {
+  font-size: 22px;
+}
+
+@mixin s {
+  font-size: 35px;
+}
+
+@mixin m {
+  font-size: 43px;
+}
+
+@mixin l {
+  font-size: 48px;
+}
+
+@mixin xl {
+  font-size: 57px;
+}
+
+@mixin xxl {
+  font-size: 68px;
+}
+
+@mixin xxxl {
+  font-size: 88px;
+}
+
+@mixin btn {
+  @include xxs;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+}
+
