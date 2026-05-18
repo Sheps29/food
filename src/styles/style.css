@@ -7,6 +7,10 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -274,4 +278,177 @@ main .work ul li p {
   font-size: 18px;
   color: #9E9E9E;
   text-align: center;
+}
+main .install {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+  align-items: center;
+  background-color: #FEEFD0;
+  padding-top: 100px;
+}
+main .install ul {
+  display: flex;
+  background-color: white;
+  padding: 55px;
+  border-radius: 46px;
+  box-shadow: 0 10px 30px #9E9E9E;
+}
+main .install ul li {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+main .install ul li h3 {
+  font-size: 35px;
+  max-width: 160px;
+  background: linear-gradient(45deg, #FB3C00, #FFB800);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main .install ul li:nth-of-type(2) {
+  border-left: 1px solid #9E9E9E;
+  border-right: 1px solid #9E9E9E;
+  padding: 0 55px;
+}
+main .install ul li:first-of-type {
+  padding-right: 55px;
+}
+main .install ul li:last-of-type {
+  padding-left: 55px;
+}
+main .install .stores {
+  display: flex;
+  gap: 50px;
+}
+main .install .stores picture img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+main .install .stores h2 {
+  font-size: 68px;
+  color: #FFB30E;
+}
+main .install .stores p {
+  font-size: 18px;
+  max-width: 430px;
+  color: #827E7E;
+  margin: 16px 0 40px;
+}
+main .install .stores .links {
+  display: flex;
+  gap: 8px;
+}
+main .install .stores .links a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 14px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px #9E9E9E;
+}
+main .install .stores .links a div {
+  display: flex;
+  flex-direction: column;
+  color: #424242;
+}
+main .install .stores .links a div span:first-of-type {
+  font-size: 14px;
+}
+main .install .stores .links a div span:last-of-type {
+  font-size: 22px;
+}
+main .install .stores > div {
+  padding-top: 56px;
+}
+main .types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+main .types .box {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 1px 30px #9E9E9E;
+  overflow: hidden;
+}
+main .types .box picture {
+  display: block;
+}
+main .types .box picture img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+main .types .box .about {
+  max-width: 408px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 56px;
+}
+main .types .box .about h3 {
+  font-size: 43px;
+  color: #424242;
+}
+main .types .box .about h3 span {
+  color: #FFB30E;
+}
+main .types .box .about p {
+  font-size: 18px;
+  color: #616161;
+}
+main .types .box .about button {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  margin-top: 48px;
+  padding: 21px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-image: linear-gradient(30deg, #FFB800, #FF8A00);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+main .deals {
+  background-color: #FFCD1E;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  padding: 90px 0 75px;
+}
+main .deals h3 {
+  font-size: 57px;
+  color: white;
+  max-width: 730px;
+  line-height: 60px;
+  text-align: center;
+}
+main .deals button {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  padding: 21px 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-image: linear-gradient(-30deg, #F65900, #FF7A7A);
+  color: white;
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */
