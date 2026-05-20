@@ -23,6 +23,14 @@ body {
   width: 100%;
 }
 
+.circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: none;
+  background-color: $yellow-300;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -323,6 +331,250 @@ main {
         p {
           @include xxs;
           color: $grey-200;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .popular {
+
+    h2 {
+      @include m;
+      color: $grey-700;
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    div {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .circle:last-of-type {
+        transform: rotateY(180deg);
+      }
+
+      ul {
+        display: flex;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+        li {
+          @include xs;
+          scroll-snap-align: center;
+
+          picture {
+            display: block;
+
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          h4 {
+            color: $grey-300;
+          }
+
+          a {
+            color: $yellow-300;
+            display: flex;
+            gap: 8px;
+          }
+
+          span {
+            color: $grey-700;
+            font-weight: 600;
+            display: block;
+          }
+
+          button {
+            @include btn;
+            @include xxs;
+            font-weight: 600;
+            background-color: $orange;
+            color: white;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .restaurants {
+    max-width: 1480px;
+
+    h2 {
+      font-size: 43px;
+      color: $grey-700;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      li {
+        margin: 30px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        picture {
+          display: block;
+          position: relative;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+          }
+
+          .feature {
+            position: absolute;
+            display: flex;
+            gap: 8px;
+            top: 24px;
+            left: 24px;
+
+            button {
+              @include xs;
+              display: flex;
+              gap: 10px;
+              padding: 8px 16px;
+              color: white;
+              border-radius: 8px;
+              border: none;
+              font-weight: 600;
+
+              img {
+                width: 22px;
+                height: 22px;
+              }
+            }
+
+            .percent {
+              background-color: $orange;
+            }
+
+            .fast {
+              background-color: $yellow-300;
+            }
+          }
+        }
+
+        .rest {
+          display: flex;
+          gap: 24px;
+
+          div {
+
+            h4 {
+              @include xs;
+              color: $grey-300;
+            }
+
+            span {
+              @include xs;
+              color: $yellow-300;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+          }
+        }
+
+        .close, .open {
+          @include xs;
+          margin-top: 8px;
+          margin-right: auto;
+          padding: 8px 16px;
+          border-radius: 16px;
+          font-weight: 600;
+        }
+
+        .close {
+          color: $orange;
+          background-color: rgba(241, 114, 40, 0.2);
+        }
+
+        .open {
+          color: $green;
+          background-color: rgb(121, 185, 60, 0.2);
+        }
+      }
+    }
+
+    .view {
+      @include btn;
+      background-color: $yellow-300;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 21px 48px;
+      border-radius: 14px;
+      margin: 0 auto;
+      margin-top: 80px;
+    }
+  }
+
+  .seek {
+
+    .all {
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        @include m;
+        color: $grey-300;
+      }
+
+      div {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        button:first-of-type {
+          @include xxs;
+          margin-right: 10px;
+          display: flex;
+          gap: 10px;
+          border: none;
+          background-color: white;
+          color: $yellow-300;
+          font-weight: 600;
+        }
+
+        button:nth-of-type(2) {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+    
+    ul {
+      display: flex;
+      gap: 32px;
+      margin-top: 80px;
+
+      li {
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: auto;
+        }
+
+        h4 {
+          @include xs;
+          color: $grey-300;
+          margin-top: 26px;
           text-align: center;
         }
       }

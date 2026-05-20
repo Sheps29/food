@@ -20,6 +20,14 @@ body {
   width: 100%;
 }
 
+.circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: none;
+  background-color: #FFB30E;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -277,6 +285,210 @@ main .work ul li h4 {
 main .work ul li p {
   font-size: 18px;
   color: #9E9E9E;
+  text-align: center;
+}
+main .popular h2 {
+  font-size: 43px;
+  color: #212121;
+  margin-bottom: 80px;
+  text-align: center;
+}
+main .popular div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+main .popular div .circle:last-of-type {
+  transform: rotateY(180deg);
+}
+main .popular div ul {
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+main .popular div ul li {
+  font-size: 22px;
+  scroll-snap-align: center;
+}
+main .popular div ul li picture {
+  display: block;
+}
+main .popular div ul li picture img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+main .popular div ul li h4 {
+  color: #424242;
+}
+main .popular div ul li a {
+  color: #FFB30E;
+  display: flex;
+  gap: 8px;
+}
+main .popular div ul li span {
+  color: #212121;
+  font-weight: 600;
+  display: block;
+}
+main .popular div ul li button {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #F17228;
+  color: white;
+  width: 100%;
+}
+main .restaurants {
+  max-width: 1480px;
+}
+main .restaurants h2 {
+  font-size: 43px;
+  color: #212121;
+  margin-bottom: 50px;
+  text-align: center;
+}
+main .restaurants ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+main .restaurants ul li {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+main .restaurants ul li picture {
+  display: block;
+  position: relative;
+}
+main .restaurants ul li picture img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+main .restaurants ul li picture .feature {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  top: 24px;
+  left: 24px;
+}
+main .restaurants ul li picture .feature button {
+  font-size: 22px;
+  display: flex;
+  gap: 10px;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+}
+main .restaurants ul li picture .feature button img {
+  width: 22px;
+  height: 22px;
+}
+main .restaurants ul li picture .feature .percent {
+  background-color: #F17228;
+}
+main .restaurants ul li picture .feature .fast {
+  background-color: #FFB30E;
+}
+main .restaurants ul li .rest {
+  display: flex;
+  gap: 24px;
+}
+main .restaurants ul li .rest div h4 {
+  font-size: 22px;
+  color: #424242;
+}
+main .restaurants ul li .rest div span {
+  font-size: 22px;
+  color: #FFB30E;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+main .restaurants ul li .close, main .restaurants ul li .open {
+  font-size: 22px;
+  margin-top: 8px;
+  margin-right: auto;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+main .restaurants ul li .close {
+  color: #F17228;
+  background-color: rgba(241, 114, 40, 0.2);
+}
+main .restaurants ul li .open {
+  color: #79B93C;
+  background-color: rgba(121, 185, 60, 0.2);
+}
+main .restaurants .view {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  background-color: #FFB30E;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 21px 48px;
+  border-radius: 14px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+main .seek .all {
+  display: flex;
+  justify-content: space-between;
+}
+main .seek .all h2 {
+  font-size: 43px;
+  color: #424242;
+}
+main .seek .all div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+main .seek .all div button:first-of-type {
+  font-size: 18px;
+  margin-right: 10px;
+  display: flex;
+  gap: 10px;
+  border: none;
+  background-color: white;
+  color: #FFB30E;
+  font-weight: 600;
+}
+main .seek .all div button:nth-of-type(2) {
+  transform: rotateY(180deg);
+}
+main .seek ul {
+  display: flex;
+  gap: 32px;
+  margin-top: 80px;
+}
+main .seek ul li img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+main .seek ul li h4 {
+  font-size: 22px;
+  color: #424242;
+  margin-top: 26px;
   text-align: center;
 }
 main .install {
