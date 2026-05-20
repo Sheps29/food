@@ -306,10 +306,12 @@ main .popular div ul {
   gap: 16px;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  max-width: 1480px;
 }
 main .popular div ul li {
   font-size: 22px;
   scroll-snap-align: center;
+  min-width: 250px;
 }
 main .popular div ul li picture {
   display: block;
@@ -364,25 +366,25 @@ main .restaurants ul li {
   flex-direction: column;
   gap: 24px;
 }
-main .restaurants ul li picture {
+main .restaurants ul li .food {
   display: block;
   position: relative;
 }
-main .restaurants ul li picture img {
+main .restaurants ul li .food img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: auto;
   border-radius: 16px;
 }
-main .restaurants ul li picture .feature {
+main .restaurants ul li .food .feature {
   position: absolute;
   display: flex;
   gap: 8px;
   top: 24px;
   left: 24px;
 }
-main .restaurants ul li picture .feature button {
+main .restaurants ul li .food .feature button {
   font-size: 22px;
   display: flex;
   gap: 10px;
@@ -392,14 +394,14 @@ main .restaurants ul li picture .feature button {
   border: none;
   font-weight: 600;
 }
-main .restaurants ul li picture .feature button img {
+main .restaurants ul li .food .feature button img {
   width: 22px;
   height: 22px;
 }
-main .restaurants ul li picture .feature .percent {
+main .restaurants ul li .food .feature .percent {
   background-color: #F17228;
 }
-main .restaurants ul li picture .feature .fast {
+main .restaurants ul li .food .feature .fast {
   background-color: #FFB30E;
 }
 main .restaurants ul li .rest {
@@ -433,7 +435,7 @@ main .restaurants ul li .open {
   color: #79B93C;
   background-color: rgba(121, 185, 60, 0.2);
 }
-main .restaurants .view {
+main .restaurants .toggle {
   font-size: 18px;
   border-radius: 8px;
   border: none;

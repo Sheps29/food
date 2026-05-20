@@ -360,10 +360,12 @@ main {
         gap: 16px;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        max-width: 1480px;
 
         li {
           @include xs;
           scroll-snap-align: center;
+          min-width: 250px;
 
           picture {
             display: block;
@@ -425,7 +427,7 @@ main {
         flex-direction: column;
         gap: 24px;
 
-        picture {
+        .food {
           display: block;
           position: relative;
 
@@ -511,7 +513,7 @@ main {
       }
     }
 
-    .view {
+    .toggle {
       @include btn;
       background-color: $yellow-300;
       color: white;

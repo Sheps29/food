@@ -155,7 +155,7 @@
       <div>
         <button class="circle" id="left"><img src="../images/array.svg" alt="array"></button>
         <ul id="list">
-          <li>
+          <li id="item">
             <picture>
               <img src="../images/cheese-burger.png" alt="burger">
             </picture>
@@ -164,7 +164,7 @@
             <span>$3.88</span>
             <button>Order Now</button>
           </li>
-          <li>
+          <li id="item">
             <picture>
               <img src="../images/toffe-cake.png" alt="cake">
             </picture>
@@ -173,7 +173,7 @@
             <span>$4.00</span>
             <button>Order Now</button>
           </li>
-          <li>
+          <li id="item">
             <picture>
               <img src="../images/dancake.png" alt="dancake">
             </picture>
@@ -182,7 +182,7 @@
             <span>$1.99</span>
             <button>Order Now</button>
           </li>
-          <li>
+          <li id="item">
             <picture>
               <img src="../images/crispy-sandwitch.png" alt="sandwitch">
             </picture>
@@ -191,7 +191,25 @@
             <span>$3.00</span>
             <button>Order Now</button>
           </li>
-          <li>
+          <li id="item">
+            <picture>
+              <img src="../images/thai-soup.png" alt="soup">
+            </picture>
+            <h4>Thai  Soup</h4>
+            <a href="#"><img src="../images/map-marker-yellow.svg" alt="map">Foody man</a>
+            <span>$2.79</span>
+            <button>Order Now</button>
+          </li>
+          <li id="item">
+            <picture>
+              <img src="../images/thai-soup.png" alt="soup">
+            </picture>
+            <h4>Thai  Soup</h4>
+            <a href="#"><img src="../images/map-marker-yellow.svg" alt="map">Foody man</a>
+            <span>$2.79</span>
+            <button>Order Now</button>
+          </li>
+          <li id="item">
             <picture>
               <img src="../images/thai-soup.png" alt="soup">
             </picture>
@@ -207,10 +225,29 @@
 
     <section class="restaurants">
       <h2>Featured Restaurants</h2>
-      <ul>
-        <li>
-          <picture>
-            <img src="../images/foodworld.png" alt="foodworld">
+        <template id="rest-template">
+          <li class="rest-item">
+            <div class="food">
+              <img class="food-img" />
+              <div class="feature">
+                <button class="percent"></button>
+                <button class="fast">Fast</button>
+              </div>
+            </div>
+            <div class="rest">
+              <img class="logo-rest" />
+              <div class="name">
+                <h4 class="title"></h4>
+                <span class="star"></span>
+              </div>
+            </div>
+            <span class="status"></span>
+          </li>
+        </template>
+      <ul class="rests">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/foodworld.png" alt="foodworld" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -221,19 +258,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/foodworld-logo.svg" alt="foodworld">
-            <div>
-              <h4>Foodworld</h4>
-              <span><img src="../images/star.svg" alt="star">46</span>
+            <img src="../images/foodworld-logo.svg" alt="foodworld" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Foodworld</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">46</span>
             </div>
           </div>
-          <span class="close">Opens tomorrow</span>
+          <span class="close status">Opens tomorrow</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/pizzahub.png" alt="pizzahub">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/pizzahub.png" alt="pizzahub" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -244,19 +281,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/pizzahub-logo.svg" alt="pizzahub">
-            <div>
-              <h4>Pizzahub</h4>
-              <span><img src="../images/star.svg" alt="star">40</span>
+            <img src="../images/pizzahub-logo.svg" alt="pizzahub" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Pizzahub</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">40</span>
             </div>
           </div>
-          <span class="close">Opens tomorrow</span>
+          <span class="close status">Opens tomorrow</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/donuts.png" alt="donuts">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/donuts.png" alt="donuts" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -267,19 +304,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/donuts-logo.svg" alt="donuts">
-            <div>
-              <h4>Donuts hut</h4>
-              <span><img src="../images/star.svg" alt="star">20</span>
+            <img src="../images/donuts-logo.svg" alt="donuts" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Donuts hut</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">20</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/subwey.png" alt="subwey">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/subwey.png" alt="subwey" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -290,19 +327,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/subwey-logo.svg" alt="subwey">
-            <div>
-              <h4>Subwey</h4>
-              <span><img src="../images/star.svg" alt="star">50</span>
+            <img src="../images/subwey-logo.svg" alt="subwey" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Subwey</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">50</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/ruby.png" alt="ruby">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/ruby.png" alt="ruby" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -313,19 +350,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/ruby-logo.svg" alt="ruby">
-            <div>
-              <h4>Ruby Tuesday</h4>
-              <span><img src="../images/star.svg" alt="star">26</span>
+            <img src="../images/ruby-logo.svg" alt="ruby" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Ruby Tuesday</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">26</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/kfc.png" alt="kfc">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/kfc.png" alt="kfc" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -336,19 +373,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/kfc-logo.svg" alt="kfc">
-            <div>
-              <h4>Kuakata Fried Chicken</h4>
-              <span><img src="../images/star.svg" alt="star">53</span>
+            <img src="../images/kfc-logo.svg" alt="kfc" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Kuakata Fried Chicken</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">53</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/red.png" alt="red">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/red.png" alt="red" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -359,19 +396,19 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/red-logo.svg" alt="red">
-            <div>
-              <h4>Red Square</h4>
-              <span><img src="../images/star.svg" alt="star">45</span>
+            <img src="../images/red-logo.svg" alt="red" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Red Square</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">45</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
-        <li>
-          <picture>
-            <img src="../images/taco.png" alt="taco">
+        <li class="rest-item">
+          <div class="food">
+            <img src="../images/taco.png" alt="taco" class="food-img">
             <div class="feature">
               <button class="percent">
                 <img src="../images/percent.svg" alt="percent">
@@ -382,18 +419,18 @@
                 Fast
               </button>
             </div>
-          </picture>
+          </div>
           <div class="rest">
-            <img src="../images/taco-logo.svg" alt="taco">
-            <div>
-              <h4>Taco Bell</h4>
-              <span><img src="../images/star.svg" alt="star">35</span>
+            <img src="../images/taco-logo.svg" alt="taco" class="logo-rest">
+            <div class="name">
+              <h4 class="title">Taco Bell</h4>
+              <span class="star"><img src="../images/star.svg" alt="star">35</span>
             </div>
           </div>
-          <span class="open">Open Now</span>
+          <span class="open status">Open Now</span>
         </li>
       </ul>
-      <button class="view">View All <img src="../images/arr.svg" alt="arr"></button>
+      <button class="toggle">View All <img src="../images/arr.svg" alt="arr"></button>
     </section>
 
     <section class="seek">
