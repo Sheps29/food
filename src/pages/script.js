@@ -1,43 +1,4 @@
-// document.addEventListener('DOMContentLoaded', () => {
-
-// const list = document.getElementById('list');
-// const left = document.getElementById('left');
-// const right = document.getElementById('right');
-
-// left.addEventListener('click', () => {
-//   list.scrollBy({
-//     left: -250,
-//     behavior: 'smooth'
-//   });
-// });
-
-// right.addEventListener('click', () => {
-//   list.scrollBy({
-//     right: 250,
-//     behavior: 'smooth'
-//   });
-// });
-
-// const li = document.getElementById('item');
-// li.scrollIntoView({
-//   behavior: 'smooth',
-//   block: 'start' 
-// });
-// })
-
-
-const Restaurant = [
-  {
-    name: string,
-    rating: number,
-    status: string,
-    discount: string,
-    image: string,
-    logo: string,
-  }
-] 
-
-const restaurants: Restaurant[] = [
+const restaurants = [
   {
     name: "Foodworld",
     rating: 46,
@@ -48,59 +9,88 @@ const restaurants: Restaurant[] = [
   },
   {
     name: "Pizzahub",
-    rating: 120,
+    rating: 40,
     status: "Open now",
     discount: "10% off",
-    image: "../images/pizza.png",
-    logo: "../images/pizza-logo.svg",
+    image: "../images/pizzahub.png",
+    logo: "../images/pizzahub-logo.svg",
   },
   {
-    name: "Burger King",
-    rating: 300,
+    name: "Donuts hut",
+    rating: 20,
+    status: "Open now",
+    discount: "10% off",
+    image: "../images/donuts.png",
+    logo: "../images/donuts-logo.svg",
+  },
+  {
+    name: "Subwey",
+    rating: 50,
     status: "Open now",
     discount: "15% off",
-    image: "../images/burger.png",
-    logo: "../images/burger-logo.svg",
+    image: "../images/subwey.png",
+    logo: "../images/subwey-logo.svg",
   },
   {
-    name: "Sushi Bar",
-    rating: 88,
-    status: "Closes soon",
+    name: "Ruby Tuesday",
+    rating: 26,
+    status: "Open now",
+    discount: "10% off",
+    image: "../images/ruby.png",
+    logo: "../images/ruby-logo.svg",
+  },
+  {
+    name: "Kuakata Fried Chicken",
+    rating: 53,
+    status: "Open now",
     discount: "25% off",
-    image: "../images/sushi.png",
-    logo: "../images/sushi-logo.svg",
+    image: "../images/kfc.png",
+    logo: "../images/kfc-logo.svg",
+  },
+  {
+    name: "Red Square",
+    rating: 45,
+    status: "Open now",
+    discount: "10% off",
+    image: "../images/red.png",
+    logo: "../images/red-logo.svg",
+  },
+  {
+    name: "Taco Bell",
+    rating: 35,
+    status: "Open now",
+    discount: "10% off",
+    image: "../images/taco.png",
+    logo: "../images/taco-logo.svg",
   },
 ];
+
+const template = document.getElementById("rest-template");
+const list = document.querySelector(".rests");
+const button = document.getElementById("toggle");
 
 const INITIAL_COUNT = 3;
 let expanded = false;
 
-const template = document.getElementById(
-  "rest-template"
-) as HTMLTemplateElement;
-
-const list = document.querySelector(".rests") as HTMLUListElement;
-
-const button = document.getElementById("toggle") as HTMLButtonElement;
-
-function render(data: Restaurant[]) {
+function render(data) {
   list.innerHTML = "";
 
   data.forEach((rest) => {
-    const clone = template.content.cloneNode(true) as DocumentFragment;
+    const clone = template.content.cloneNode(true);
 
-    (clone.querySelector(".food-img") as HTMLImageElement).src = rest.image;
-    (clone.querySelector(".logo") as HTMLImageElement).src = rest.logo;
+    clone.querySelector(".food-img").src = rest.image;
+    clone.querySelector(".logo-rest").src = rest.logo;
 
-    (clone.querySelector(".title") as HTMLElement).textContent = rest.name;
+    clone.querySelector(".title").textContent = rest.name;
+    
+    const statusEl = clone.querySelector(".status");
+    statusEl.textContent = rest.status;
+    statusEl.setAttribute('data-status', rest.status.toLowerCase());
 
-    (clone.querySelector(".status") as HTMLElement).textContent = rest.status;
+    clone.querySelector(".percent").textContent = rest.discount;
 
-    (clone.querySelector(".percent") as HTMLElement).textContent =
-      rest.discount;
-
-    (clone.querySelector(".rating-text") as HTMLElement).textContent =
-      String(rest.rating);
+    const star = clone.querySelector('.star');
+    star.append(` ${rest.rating}`);
 
     list.appendChild(clone);
   });
@@ -117,7 +107,9 @@ function updateView() {
 button.addEventListener("click", () => {
   expanded = !expanded;
 
-  button.textContent = expanded ? "Свернуть" : "Показать все";
+  button.textContent = expanded
+    ? "Свернуть"
+    : "Показать все";
 
   updateView();
 });

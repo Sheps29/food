@@ -4,6 +4,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 ul {
@@ -16,11 +17,21 @@ a {
 
 body {
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+section {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .wrapper {
-  max-width: 1450px;
+  max-width: 1480px;
   width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .circle {
@@ -40,7 +51,8 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    padding: 20px 0;
+    padding: 20px;
+    box-sizing: border-box;
 
     .logo {
       width: 190px;
@@ -94,6 +106,10 @@ header {
       }
     }
   }
+}
+
+main > * {
+  min-width: 0;
 }
 
 main {
@@ -234,6 +250,9 @@ main {
 
           img {
             border-radius: 16px;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
           }
 
           .sale {
@@ -358,14 +377,18 @@ main {
       ul {
         display: flex;
         gap: 16px;
-        overflow-x: scroll;
+        overflow-x: auto;
         scroll-snap-type: x mandatory;
-        max-width: 1480px;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 20px;
+        margin: 0 auto;
 
         li {
           @include xs;
           scroll-snap-align: center;
           min-width: 250px;
+          flex-shrink: 0;
 
           picture {
             display: block;
@@ -492,7 +515,7 @@ main {
           }
         }
 
-        .close, .open {
+        .status {
           @include xs;
           margin-top: 8px;
           margin-right: auto;

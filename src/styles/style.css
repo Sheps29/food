@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 ul {
@@ -13,11 +14,21 @@ a {
 
 body {
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+section {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .wrapper {
-  max-width: 1450px;
+  max-width: 1480px;
   width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .circle {
@@ -37,7 +48,8 @@ header .wrapper {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 header .wrapper .logo {
   width: 190px;
@@ -84,6 +96,10 @@ header .wrapper div button {
 }
 header .wrapper div button img {
   margin-right: 8px;
+}
+
+main > * {
+  min-width: 0;
 }
 
 main {
@@ -205,6 +221,10 @@ main .sales ul li picture {
 }
 main .sales ul li picture img {
   border-radius: 16px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 main .sales ul li picture .sale {
   position: absolute;
@@ -304,14 +324,18 @@ main .popular div .circle:last-of-type {
 main .popular div ul {
   display: flex;
   gap: 16px;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
-  max-width: 1480px;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 main .popular div ul li {
   font-size: 22px;
   scroll-snap-align: center;
   min-width: 250px;
+  flex-shrink: 0;
 }
 main .popular div ul li picture {
   display: block;
@@ -419,7 +443,7 @@ main .restaurants ul li .rest div span {
   align-items: center;
   gap: 8px;
 }
-main .restaurants ul li .close, main .restaurants ul li .open {
+main .restaurants ul li .status {
   font-size: 22px;
   margin-top: 8px;
   margin-right: auto;
