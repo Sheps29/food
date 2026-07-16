@@ -41,3 +41,33 @@
   padding: 14px 24px;
 }
 
+@mixin menu {
+  display: flex;
+
+  .menu-search {
+    @include xxs;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: $grey-300;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .user {
+    @include btn;
+    display: flex;
+    align-items: center;
+    color: $yellow-100;
+    box-shadow: 0 3px 0.2em $grey-200;
+    background: white;
+    font-weight: 700;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+}
+

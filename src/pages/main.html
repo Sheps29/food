@@ -14,15 +14,40 @@
   <header>
     <div class="wrapper">
       <img src="../images/logo.png" alt="logo" class="logo">
-      <p>Deliver to: <img src="../images/map-marker-yellow.svg" alt="map"><span>Current Location </span> Mohammadpur Bus Stand, Dhaka</p>
-      <div>
-        <span><img src="../images/search.svg" alt="search">Search Food</span>
-        <button><img src="../images/user.svg" alt="user">Login</button>
+      <a href="#" class="location">Deliver to: <img src="../images/map-marker-yellow.svg" alt="map"><span>Current Location </span> Mohammadpur Bus Stand, Dhaka</a>
+      <div class="menu">
+        <a href="#" class="menu-search"><img src="../images/search.svg" alt="search">Search Food</a>
+        <button class="user" id="desktop-login"><img src="../images/user.svg" alt="user">Login</button>
+      </div>
+      <button class="burger" id="burger"><img src="../images/bg.svg" alt="bg"></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-content">
+        <a href="#" class="menu-search"><img src="../images/search.svg" alt="search">Search Food</a>
+        <button class="user" id="mobile-login"><img src="../images/user.svg" alt="user">Login</button>
       </div>
     </div>
   </header>
+
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <button class="close-modal" id="close-modal"><img src="../images/close.png" alt="close"></button>
+      <h2>Login to your account</h2>
+      <form class="login-form" id="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="aaa@gmail.com" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+
+        <button type="submit">Login now</button>
+      </form>
+      <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </div>
+  </div>
+
   <main>
-    <section class="promo">
+    <!-- <section class="promo">
       <div class="wrapper">
         <div class="starvation">
           <h1>Are you starving?</h1>
@@ -556,7 +581,7 @@ with the best deals.</p>
     <section class="deals">
       <h3>Are you ready to order with the best deals?</h3>
       <button>Proceed to order <img src="../images/arr.svg" alt="arr"></button>
-    </section>
+    </section> -->
   </main>
 
   <!-- <footer>

@@ -43,27 +43,33 @@ section {
 }
 
 header {
-  display: flex;
-  justify-content: center;
+  padding: 20px;
 
   .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // flex-wrap: wrap;
     gap: 30px;
-    padding: 20px;
-    box-sizing: border-box;
+    // box-sizing: border-box;
+
+    //  @media (max-width: 768px) {
+
+    //  }
 
     .logo {
       width: 190px;
       height: 37px;
     }
 
-    p {
+    .location {
       @include xxs;
       font-weight: 700;
       display: flex;
       align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      color: black;
 
       img {
         margin: 0 10px 0 12px;
@@ -75,11 +81,17 @@ header {
       }
     }
 
-    div {
+    .menu {
       display: flex;
+      align-items: center;
       gap: 30px;
+      flex-shrink: 0;
 
-      span {
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      .menu-search {
         @include xxs;
         font-weight: 700;
         display: flex;
@@ -91,7 +103,7 @@ header {
         }
       }
 
-      button {
+      .user {
         @include btn;
         display: flex;
         align-items: center;
@@ -105,7 +117,115 @@ header {
         }
       }
     }
+
+    .burger {
+      display: none;
+      border: none;
+      background: none;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
   }
+
+  .mobile-menu {
+    display: none;
+    box-shadow: 0 3px 0.2em $grey-200;
+    padding: 20px;
+    margin-left: auto;
+    max-width: 200px;
+    border-radius: 8px;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+
+    .mobile-menu-content {
+      @include menu;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+
+  .modal-content {
+    background: white;
+    padding: 30px;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 0 3px 0.2em $grey-200;
+    border-radius: 8px;
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border: none;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    h2 {
+      @include xs;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      label {
+        @include xxxs;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid $grey-600;
+      }
+
+      button {
+        @include btn;
+        margin-top: 15px;
+        color: $yellow-100;
+        background: white;
+        box-shadow: 0 3px 0.2em $grey-200;
+      }
+    }
+
+    p {
+      @include xxxs;
+      margin-top: 15px;
+
+      a {
+        color: $yellow-100;
+      }
+    }
+  }
+}
+
+.modal.active {
+  display: flex;
 }
 
 main > * {

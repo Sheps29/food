@@ -40,49 +40,56 @@ section {
 }
 
 header {
-  display: flex;
-  justify-content: center;
+  padding: 20px;
 }
 header .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 20px;
-  box-sizing: border-box;
 }
 header .wrapper .logo {
   width: 190px;
   height: 37px;
 }
-header .wrapper p {
+header .wrapper .location {
   font-size: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
 }
-header .wrapper p img {
+header .wrapper .location img {
   margin: 0 10px 0 12px;
 }
-header .wrapper p span {
+header .wrapper .location span {
   font-weight: 200;
   margin-right: 5px;
 }
-header .wrapper div {
+header .wrapper .menu {
   display: flex;
+  align-items: center;
   gap: 30px;
+  flex-shrink: 0;
 }
-header .wrapper div span {
+@media (max-width: 768px) {
+  header .wrapper .menu {
+    display: none;
+  }
+}
+header .wrapper .menu .menu-search {
   font-size: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
   color: #424242;
 }
-header .wrapper div span img {
+header .wrapper .menu .menu-search img {
   margin-right: 8px;
 }
-header .wrapper div button {
+header .wrapper .menu .user {
   font-size: 18px;
   border-radius: 8px;
   border: none;
@@ -94,8 +101,136 @@ header .wrapper div button {
   background: white;
   font-weight: 700;
 }
-header .wrapper div button img {
+header .wrapper .menu .user img {
   margin-right: 8px;
+}
+header .wrapper .burger {
+  display: none;
+  border: none;
+  background: none;
+}
+@media (max-width: 768px) {
+  header .wrapper .burger {
+    display: block;
+  }
+}
+header .mobile-menu {
+  display: none;
+  box-shadow: 0 3px 0.2em #9E9E9E;
+  padding: 20px;
+  margin-left: auto;
+  max-width: 200px;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  header .mobile-menu {
+    display: block;
+  }
+}
+header .mobile-menu .mobile-menu-content {
+  display: flex;
+}
+header .mobile-menu .mobile-menu-content .menu-search {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #424242;
+}
+header .mobile-menu .mobile-menu-content .menu-search img {
+  margin-right: 8px;
+}
+header .mobile-menu .mobile-menu-content .user {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  color: #FF8A00;
+  box-shadow: 0 3px 0.2em #9E9E9E;
+  background: white;
+  font-weight: 700;
+}
+header .mobile-menu .mobile-menu-content .user img {
+  margin-right: 8px;
+}
+header .mobile-menu .mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-content {
+  background: white;
+  padding: 30px;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 0 3px 0.2em #9E9E9E;
+  border-radius: 8px;
+}
+.modal .modal-content .close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.modal .modal-content .close-modal img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.modal .modal-content h2 {
+  font-size: 22px;
+}
+.modal .modal-content .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.modal .modal-content .login-form label {
+  font-size: 14px;
+}
+.modal .modal-content .login-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #616161;
+}
+.modal .modal-content .login-form button {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  margin-top: 15px;
+  color: #FF8A00;
+  background: white;
+  box-shadow: 0 3px 0.2em #9E9E9E;
+}
+.modal .modal-content p {
+  font-size: 14px;
+  margin-top: 15px;
+}
+.modal .modal-content p a {
+  color: #FF8A00;
+}
+
+.modal.active {
+  display: flex;
 }
 
 main > * {
