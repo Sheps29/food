@@ -14,14 +14,13 @@ a {
 
 body {
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 section {
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .wrapper {
@@ -122,11 +121,6 @@ header .mobile-menu {
   max-width: 200px;
   border-radius: 8px;
 }
-@media (max-width: 768px) {
-  header .mobile-menu {
-    display: block;
-  }
-}
 header .mobile-menu .mobile-menu-content {
   display: flex;
 }
@@ -160,6 +154,9 @@ header .mobile-menu .mobile-menu-content {
   flex-direction: column;
   gap: 16px;
   align-items: center;
+}
+header .mobile-menu.active {
+  display: block;
 }
 
 .modal {
@@ -255,16 +252,32 @@ main .promo .wrapper {
   gap: 22px;
   padding-top: 80px;
 }
+@media (max-width: 920px) {
+  main .promo .wrapper {
+    flex-direction: column;
+  }
+}
 main .promo .wrapper .starvation {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-bottom: 100px;
 }
+@media (max-width: 920px) {
+  main .promo .wrapper .starvation {
+    margin-bottom: 0;
+  }
+}
 main .promo .wrapper .starvation h1 {
   font-size: 88px;
   color: white;
   font-weight: 700;
+  line-height: 88px;
+}
+@media (max-width: 768px) {
+  main .promo .wrapper .starvation h1 {
+    font-size: 68px;
+  }
 }
 main .promo .wrapper .starvation p {
   font-size: 22px;
@@ -281,6 +294,11 @@ main .promo .wrapper .starvation .search form {
   border-bottom: 1px solid #9E9E9E;
   display: flex;
   gap: 8px;
+}
+@media (max-width: 420px) {
+  main .promo .wrapper .starvation .search form {
+    flex-direction: column;
+  }
 }
 main .promo .wrapper .starvation .search form label {
   padding: 10px 24px;
@@ -310,6 +328,11 @@ main .promo .wrapper .starvation .search .geo {
   display: flex;
   gap: 16px;
 }
+@media (max-width: 768px) {
+  main .promo .wrapper .starvation .search .geo {
+    flex-direction: column;
+  }
+}
 main .promo .wrapper .starvation .search .geo div {
   display: flex;
   align-items: center;
@@ -324,6 +347,14 @@ main .promo .wrapper .starvation .search .geo div {
 main .promo .wrapper .starvation .search .geo div img {
   height: 38px;
 }
+main .promo .wrapper .starvation .search .geo div p {
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  main .promo .wrapper .starvation .search .geo div p {
+    font-size: 18px;
+  }
+}
 main .promo .wrapper .starvation .search .geo button {
   font-size: 18px;
   border-radius: 8px;
@@ -336,10 +367,16 @@ main .promo .wrapper .starvation .search .geo button {
   background-image: linear-gradient(-30deg, #F65900, #FF7A7A);
   color: white;
   font-weight: 700;
+  white-space: nowrap;
 }
 main .promo .wrapper picture {
   max-width: 604px;
-  transform: translateY(100px);
+  transform: translateY(50px);
+}
+@media (max-width: 920px) {
+  main .promo .wrapper picture {
+    transform: none;
+  }
 }
 main .promo .wrapper picture img {
   -o-object-fit: cover;
@@ -347,9 +384,18 @@ main .promo .wrapper picture img {
   width: 100%;
   height: auto;
 }
+main .sales .sale-list {
+  position: relative;
+}
 main .sales ul {
   display: flex;
   gap: 16px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+main .sales ul li {
+  scroll-snap-align: start;
 }
 main .sales ul li picture {
   position: relative;
@@ -404,6 +450,24 @@ main .sales ul li .days {
   width: max-content;
   font-weight: 600;
 }
+main .sales .sale-list::before,
+main .sales .sale-list::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+main .sales .sale-list::after {
+  right: 0;
+  background: linear-gradient(to right, transparent, white);
+}
+main .sales .sale-list::before {
+  left: 0;
+  background: linear-gradient(to left, transparent, white);
+}
 main .work h2 {
   font-size: 43px;
   color: #F17228;
@@ -412,7 +476,13 @@ main .work h2 {
 }
 main .work ul {
   display: flex;
+  justify-content: center;
   gap: 32px;
+}
+@media (max-width: 768px) {
+  main .work ul {
+    flex-wrap: wrap;
+  }
 }
 main .work ul li {
   display: flex;
@@ -461,10 +531,9 @@ main .popular div ul {
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  max-width: 100%;
+  scrollbar-width: none;
   width: 100%;
   padding: 0 20px;
-  margin: 0 auto;
 }
 main .popular div ul li {
   font-size: 22px;
@@ -505,9 +574,6 @@ main .popular div ul li button {
   color: white;
   width: 100%;
 }
-main .restaurants {
-  max-width: 1480px;
-}
 main .restaurants h2 {
   font-size: 43px;
   color: #212121;
@@ -517,6 +583,7 @@ main .restaurants h2 {
 main .restaurants ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 main .restaurants ul li {
@@ -608,6 +675,7 @@ main .restaurants .toggle {
   border-radius: 14px;
   margin: 0 auto;
   margin-top: 80px;
+  white-space: nowrap;
 }
 main .seek .all {
   display: flex;
@@ -631,14 +699,22 @@ main .seek .all div button:first-of-type {
   background-color: white;
   color: #FFB30E;
   font-weight: 600;
+  white-space: nowrap;
 }
 main .seek .all div button:nth-of-type(2) {
   transform: rotateY(180deg);
 }
 main .seek ul {
   display: flex;
+  justify-content: space-between;
   gap: 32px;
   margin-top: 80px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+main .seek ul li {
+  min-width: 120px;
 }
 main .seek ul li img {
   -o-object-fit: cover;
@@ -668,6 +744,11 @@ main .install ul {
   border-radius: 46px;
   box-shadow: 0 10px 30px #9E9E9E;
 }
+@media (max-width: 1440px) {
+  main .install ul {
+    flex-direction: column;
+  }
+}
 main .install ul li {
   display: flex;
   align-items: center;
@@ -686,11 +767,26 @@ main .install ul li:nth-of-type(2) {
   border-right: 1px solid #9E9E9E;
   padding: 0 55px;
 }
+@media (max-width: 1440px) {
+  main .install ul li:nth-of-type(2) {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #9E9E9E;
+    border-bottom: 1px solid #9E9E9E;
+  }
+}
 main .install ul li:first-of-type {
   padding-right: 55px;
 }
 main .install ul li:last-of-type {
   padding-left: 55px;
+}
+@media (max-width: 1440px) {
+  main .install ul li:first-of-type,
+  main .install ul li:nth-of-type(2),
+  main .install ul li:last-of-type {
+    padding: 20px 55px;
+  }
 }
 main .install .stores {
   display: flex;

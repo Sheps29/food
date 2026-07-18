@@ -17,14 +17,13 @@ a {
 
 body {
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 section {
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .wrapper {
@@ -137,10 +136,6 @@ header {
     max-width: 200px;
     border-radius: 8px;
 
-      @media (max-width: 768px) {
-        display: block;
-      }
-
     .mobile-menu-content {
       @include menu;
       display: flex;
@@ -148,6 +143,10 @@ header {
       gap: 16px;
       align-items: center;
     }
+  }
+
+  .mobile-menu.active {
+    display: block;
   }
 }
 
@@ -250,16 +249,29 @@ main {
       gap: 22px;
       padding-top: 80px;
 
+      @media (max-width: 920px) {
+        flex-direction: column;
+      }
+
       .starvation {
         display: flex;
         flex-direction: column;
         gap: 16px;
         margin-bottom: 100px;
 
+        @media (max-width: 920px) {
+          margin-bottom: 0;
+        }
+
         h1 {
           @include xxxl;
           color: white;
           font-weight: 700;
+          line-height: 88px;
+
+          @media (max-width: 768px) {
+            @include xxl;
+          }
         }
 
         p {
@@ -278,6 +290,10 @@ main {
             border-bottom: 1px solid $grey-200;
             display: flex;
             gap: 8px;
+
+            @media (max-width: 420px) {
+              flex-direction: column;
+            }
 
             label {
               padding: 10px 24px;
@@ -312,6 +328,10 @@ main {
             display: flex;
             gap: 16px;
 
+            @media (max-width: 768px) {
+              flex-direction: column;
+            }
+
             div {
               display: flex;
               align-items: center;
@@ -326,6 +346,14 @@ main {
               img {
                 height: 38px;
               }
+
+              p {
+                white-space: nowrap;
+
+                @media (max-width: 420px) {
+                  @include xxs;
+                }
+              }
             }
 
             button {
@@ -337,6 +365,7 @@ main {
               background-image: linear-gradient(-30deg, $orange-200, $orange-100);
               color: white;
               font-weight: 700;
+              white-space: nowrap;
             }
           }
         }
@@ -344,7 +373,11 @@ main {
 
       picture {
         max-width: 604px;
-        transform: translateY(100px);
+        transform: translateY(50px);
+
+        @media (max-width: 920px) {
+          transform: none;
+        }
 
         img {
           object-fit: cover;
@@ -357,13 +390,19 @@ main {
 
   .sales {
 
+    .sale-list {
+      position: relative;
+    }
 
     ul {
       display: flex;
       gap: 16px;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
 
       li {
-
+        scroll-snap-align: start;
 
         picture {
           position: relative;
@@ -427,6 +466,27 @@ main {
         }
       }
     }
+
+    .sale-list::before,
+    .sale-list::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 40px;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .sale-list::after {     
+      right: 0;
+      background: linear-gradient(to right, transparent, white);
+    }
+
+    .sale-list::before {
+      left: 0;
+      background: linear-gradient(to left, transparent, white);
+    }
   }
 
   .work {
@@ -440,7 +500,12 @@ main {
 
     ul {
       display: flex;
+      justify-content: center;
       gap: 32px;
+
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+      }
 
       li {
         display: flex;
@@ -499,10 +564,9 @@ main {
         gap: 16px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        max-width: 100%;
+        scrollbar-width: none;
         width: 100%;
         padding: 0 20px;
-        margin: 0 auto;
 
         li {
           @include xs;
@@ -550,7 +614,6 @@ main {
   }
 
   .restaurants {
-    max-width: 1480px;
 
     h2 {
       font-size: 43px;
@@ -562,6 +625,7 @@ main {
     ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 16px;
 
       li {
@@ -667,6 +731,7 @@ main {
       border-radius: 14px;
       margin: 0 auto;
       margin-top: 80px;
+      white-space: nowrap;
     }
   }
 
@@ -695,6 +760,7 @@ main {
           background-color: white;
           color: $yellow-300;
           font-weight: 600;
+          white-space: nowrap;
         }
 
         button:nth-of-type(2) {
@@ -705,10 +771,15 @@ main {
     
     ul {
       display: flex;
+      justify-content: space-between;
       gap: 32px;
       margin-top: 80px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
 
       li {
+        min-width: 120px;
 
         img {
           object-fit: cover;
@@ -742,6 +813,10 @@ main {
       border-radius: 46px;
       box-shadow: 0 10px 30px $grey-200;
 
+      @media (max-width: 1440px) {
+        flex-direction: column;
+      }
+
       li {
         display: flex;
         align-items: center;
@@ -760,6 +835,13 @@ main {
         border-left: 1px solid $grey-200;
         border-right: 1px solid $grey-200;
         padding: 0 55px;
+
+        @media (max-width: 1440px) {
+          border-left: none;
+          border-right: none;
+          border-top: 1px solid $grey-200;
+          border-bottom: 1px solid $grey-200;
+        }
       }
 
       li:first-of-type {
@@ -768,6 +850,15 @@ main {
 
       li:last-of-type {
         padding-left: 55px;
+      }
+
+      li:first-of-type,
+      li:nth-of-type(2),
+      li:last-of-type {
+
+        @media (max-width: 1440px) {
+          padding: 20px 55px;
+        }
       }
     }
 

@@ -24,6 +24,77 @@ loginForm.addEventListener('submit', (e) => {
   modal.classList.remove('active');
 });
 
+const list = document.getElementById('list');
+const leftBtn =  document.getElementById('left');
+const rightBtn =  document.getElementById('right');
+
+const scrollWidth = 250;
+
+rightBtn.addEventListener('click', () => {
+  list.scrollBy({left: scrollWidth, behavior: 'smooth'});
+});
+
+leftBtn.addEventListener('click', () => {
+  list.scrollBy({left: -scrollWidth, behavior: 'smooth'});
+});
+
+const viewAllBtn = document.getElementById('toggle');
+
+if (viewAllBtn) {
+  viewAllBtn.addEventListener('click', () => {
+    window.location.href = 'restaurants.html';
+  });
+};
+
+const foodList = document.getElementById('food-list');
+const toggleBtn = document.getElementById('toggle2');
+const prevBtn =  document.getElementById('prev');
+const nextBtn =  document.getElementById('next');
+
+if (viewAllBtn) {
+  toggleBtn.addEventListener('click', () => {
+    window.location.href = 'restaurants.html';
+  });
+};
+
+const allRests = [
+  { id: 1, name: 'Foodworld', food: ['Pizza', 'Burger', 'Noodles', 'Sandwich', 'Chowmein', 'Steak']},
+  { id: 2, name: 'Pizzahub', food: ['Pizza']},
+  { id: 3, name: 'Donuts hut', food: ['Sandwich']},
+  { id: 4, name: 'Subwey', food: ['Sandwich']},
+  { id: 5, name: 'Ruby Tuesday', food: ['Steak']},
+  { id: 6, name: 'Kuakata Fried Chicken', food: ['Burger']},
+  { id: 7, name: 'Red Square', food: ['Chowmein']},
+  { id: 8, name: 'Taco Bell', food: ['Noodles']},
+];
+
+const categoryPages = {
+  'Pizza': 'pizza.html',
+  'Burger': 'burger.html',
+  'Noodles': 'noodles.html',
+  'Sandwich': 'sandwich.html',
+  'Chowmein': 'chowmein.html',
+  'Steak': 'steak.html'
+};
+
+foodList.addEventListener('click', (e) => {
+  const foodName = e.target.closest('li').querySelector('h4').textContent;
+  if (categoryPages[foodName]) {
+    window.location.href = categoryPages[foodName];
+  }
+});
+
+
+const scrollAmount = 250;
+
+nextBtn.addEventListener('click', () => {
+  foodList.scrollBy({left: scrollAmount, behavior: 'smooth'});
+});
+
+prevBtn.addEventListener('click', () => {
+  foodList.scrollBy({left: -scrollAmount, behavior: 'smooth'});
+});
+
 // const restaurants = [
 //   {
 //     name: "Foodworld",
