@@ -15,6 +15,12 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  @media (max-width: 768px) {
+    @include s;
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -48,13 +54,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // flex-wrap: wrap;
     gap: 30px;
-    // box-sizing: border-box;
-
-    //  @media (max-width: 768px) {
-
-    //  }
 
     .logo {
       width: 190px;
@@ -270,7 +270,8 @@ main {
           line-height: 88px;
 
           @media (max-width: 768px) {
-            @include xxl;
+            @include l;
+            line-height: 48px;
           }
         }
 
@@ -741,6 +742,10 @@ main {
       display: flex;
       justify-content: space-between;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
       h2 {
         @include m;
         color: $grey-300;
@@ -817,10 +822,30 @@ main {
         flex-direction: column;
       }
 
+      @media (max-width: 768px) {
+        padding: 15px;
+      }
+
       li {
         display: flex;
         align-items: center;
         gap: 30px;
+
+        picture {
+          width: 130px;
+          height: 130px;
+
+          @media (max-width: 768px) {
+            width: 60px;
+            height: 60px;
+          }
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+          }
+        }
 
         h3 {
           @include s;
@@ -828,6 +853,10 @@ main {
           background: linear-gradient(45deg, $orange-300, $yellow-500);
           background-clip: text;
           -webkit-text-fill-color: transparent; 
+
+          @media (max-width: 768px) {
+            @include xs;
+          }
         }
       }
 
@@ -859,12 +888,20 @@ main {
         @media (max-width: 1440px) {
           padding: 20px 55px;
         }
+
+        @media (max-width: 768px) {
+          padding: 20px 25px;
+        }
       }
     }
 
     .stores {
       display: flex;
       gap: 50px;
+
+      @media (max-width: 1100px) {
+        flex-direction: column-reverse;
+      }
 
       picture {
 
@@ -890,6 +927,10 @@ main {
       .links {
         display: flex;
         gap: 8px;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
 
         a {
           display: flex;
@@ -935,6 +976,10 @@ main {
       box-shadow: 0 1px 30px $grey-200;
       overflow: hidden;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
       picture {
         display: block;
 
@@ -956,6 +1001,10 @@ main {
         h3 {
           @include m;
           color: $grey-300;
+
+          @media (max-width: 768px) {
+            @include xs;
+          }
 
           span {
             color: $yellow-300;
@@ -1011,5 +1060,108 @@ main {
       color: white;
       font-weight: 700;
     }
+  }
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: $grey-700;
+  padding: 0 20px;
+
+  h5 {
+    @include xs;
+    margin-bottom: 40px;
+  }
+
+  li > a {
+    @include xxs;
+    color: white;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cities {  
+    margin: 80px 0;  
+
+    .lists {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 60px 0;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+    .contacts {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .follow {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      color: $grey-800;
+
+      h5 {
+        margin-bottom: 0;
+        opacity: 40%;
+      }
+
+      div {
+        opacity: 40%;
+      }
+
+      p {
+        opacity: 40%;
+      }
+
+      form {
+        @include xxs;
+        display: flex;
+        gap: 16px;
+
+        @media (max-width: 420px) {
+          flex-direction: column;
+        }
+
+        input {
+          padding: 16px 30px;
+          border-radius: 8px;
+          border: none;
+          background-color: $grey-300;
+          color: $grey-800;
+        }
+
+        button {
+          @include btn;
+          background-color: $yellow-100;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .sign {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 16px;
   }
 }

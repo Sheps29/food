@@ -12,6 +12,12 @@ a {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  h2 {
+    font-size: 35px;
+  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -276,7 +282,8 @@ main .promo .wrapper .starvation h1 {
 }
 @media (max-width: 768px) {
   main .promo .wrapper .starvation h1 {
-    font-size: 68px;
+    font-size: 48px;
+    line-height: 48px;
   }
 }
 main .promo .wrapper .starvation p {
@@ -681,6 +688,11 @@ main .seek .all {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  main .seek .all {
+    flex-direction: column;
+  }
+}
 main .seek .all h2 {
   font-size: 43px;
   color: #424242;
@@ -749,10 +761,31 @@ main .install ul {
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  main .install ul {
+    padding: 15px;
+  }
+}
 main .install ul li {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+main .install ul li picture {
+  width: 130px;
+  height: 130px;
+}
+@media (max-width: 768px) {
+  main .install ul li picture {
+    width: 60px;
+    height: 60px;
+  }
+}
+main .install ul li picture img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 main .install ul li h3 {
   font-size: 35px;
@@ -761,6 +794,11 @@ main .install ul li h3 {
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+@media (max-width: 768px) {
+  main .install ul li h3 {
+    font-size: 22px;
+  }
 }
 main .install ul li:nth-of-type(2) {
   border-left: 1px solid #9E9E9E;
@@ -788,9 +826,21 @@ main .install ul li:last-of-type {
     padding: 20px 55px;
   }
 }
+@media (max-width: 768px) {
+  main .install ul li:first-of-type,
+  main .install ul li:nth-of-type(2),
+  main .install ul li:last-of-type {
+    padding: 20px 25px;
+  }
+}
 main .install .stores {
   display: flex;
   gap: 50px;
+}
+@media (max-width: 1100px) {
+  main .install .stores {
+    flex-direction: column-reverse;
+  }
 }
 main .install .stores picture img {
   -o-object-fit: cover;
@@ -811,6 +861,11 @@ main .install .stores p {
 main .install .stores .links {
   display: flex;
   gap: 8px;
+}
+@media (max-width: 768px) {
+  main .install .stores .links {
+    flex-direction: column;
+  }
 }
 main .install .stores .links a {
   display: flex;
@@ -848,6 +903,11 @@ main .types .box {
   box-shadow: 0 1px 30px #9E9E9E;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  main .types .box {
+    flex-direction: column;
+  }
+}
 main .types .box picture {
   display: block;
 }
@@ -868,6 +928,11 @@ main .types .box .about {
 main .types .box .about h3 {
   font-size: 43px;
   color: #424242;
+}
+@media (max-width: 768px) {
+  main .types .box .about h3 {
+    font-size: 22px;
+  }
 }
 main .types .box .about h3 span {
   color: #FFB30E;
@@ -920,4 +985,96 @@ main .deals button {
   background-image: linear-gradient(-30deg, #F65900, #FF7A7A);
   color: white;
   font-weight: 700;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: #212121;
+  padding: 0 20px;
+}
+footer h5 {
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+footer li > a {
+  font-size: 18px;
+  color: white;
+}
+footer .data {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+footer .cities {
+  margin: 80px 0;
+}
+footer .cities .lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+footer .info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 60px 0;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+footer .info .contacts {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+footer .info .follow {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #F5F5F5;
+}
+footer .info .follow h5 {
+  margin-bottom: 0;
+  opacity: 40%;
+}
+footer .info .follow div {
+  opacity: 40%;
+}
+footer .info .follow p {
+  opacity: 40%;
+}
+footer .info .follow form {
+  font-size: 18px;
+  display: flex;
+  gap: 16px;
+}
+@media (max-width: 420px) {
+  footer .info .follow form {
+    flex-direction: column;
+  }
+}
+footer .info .follow form input {
+  padding: 16px 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: #424242;
+  color: #F5F5F5;
+}
+footer .info .follow form button {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  background-color: #FF8A00;
+  color: white;
+}
+footer .sign {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-top: 16px;
 }/*# sourceMappingURL=style.css.map */
