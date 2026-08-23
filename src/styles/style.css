@@ -902,31 +902,28 @@ main .types .box {
   border-radius: 16px;
   box-shadow: 0 1px 30px #9E9E9E;
   overflow: hidden;
+  max-height: 512px;
 }
 @media (max-width: 768px) {
   main .types .box {
     flex-direction: column;
   }
 }
-main .types .box picture {
-  display: block;
-}
 main .types .box picture img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: auto;
-  display: block;
 }
 main .types .box .about {
   max-width: 408px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 56px;
+  padding: 30px 56px;
 }
 main .types .box .about h3 {
-  font-size: 43px;
+  font-size: 35px;
   color: #424242;
 }
 @media (max-width: 768px) {
@@ -946,7 +943,7 @@ main .types .box .about button {
   border-radius: 8px;
   border: none;
   padding: 14px 24px;
-  margin-top: 48px;
+  margin-top: 20px;
   padding: 21px 24px;
   display: flex;
   align-items: center;

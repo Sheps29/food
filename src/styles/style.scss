@@ -975,19 +975,18 @@ main {
       border-radius: 16px;
       box-shadow: 0 1px 30px $grey-200;
       overflow: hidden;
+      max-height: 512px;
 
       @media (max-width: 768px) {
         flex-direction: column;
       }
 
       picture {
-        display: block;
 
         img {
           object-fit: cover;
           width: 100%;
           height: auto;
-          display: block;
         }
       }
 
@@ -996,10 +995,10 @@ main {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 56px;
+        padding: 30px 56px;
 
         h3 {
-          @include m;
+          @include s;
           color: $grey-300;
 
           @media (max-width: 768px) {
@@ -1018,7 +1017,7 @@ main {
 
         button {
           @include btn;
-          margin-top: 48px;
+          margin-top: 20px;
           padding: 21px 24px;
           display: flex;
           align-items: center;

@@ -1,3 +1,6 @@
+import '/src/styles/style.css'
+const images = import.meta.glob('../images/*.{png,svg}', { eager: true })
+
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobile-menu');
 burger.addEventListener('click', () => {
@@ -20,7 +23,8 @@ closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  alert('Вы успешно вошли в аккаунт!');
+  document.getElementById('entry').textContent = 'Name';
+  alert('Успех')
   modal.classList.remove('active');
 });
 
