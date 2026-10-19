@@ -1,25 +1,27 @@
 import '/src/styles/style.css'
 const images = import.meta.glob('../images/*.{png,svg}', { eager: true })
+const mainContent = document.getElementById('app').innerHTML
 
 function router() {
   const path = window.location.pathname;
 
-  if (path === '/' || path === 'index/html') {
+  if (path === '/' || path === '/index.html') {
     loadMainPage();
     return;
   }
 
-  if (path === '/restaurants' || path === 'restaurants.html') {
+  if (path === '/restaurants' || path === '/restaurants.html') {
     loadRestaurantsPage();
     return;
   }
 
   window.history.pushState({}, '', '/');
+  loadMainPage();
 }
 
 function loadMainPage() {
   const app = document.getElementById('app');
-  if (app) app.innerHTML = '';
+  if (app) app.innerHTML = mainContents;
 }
 
 function loadRestaurantsPage() {
@@ -28,11 +30,6 @@ function loadRestaurantsPage() {
   .then(html => {
     const app = document.getElementById('app');
     app.innerHTML = html;
-
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = '/script.js';
-    document.body.appendChild(script);
   })
   .catch(() => {
     console.error('Ошибка');
@@ -89,7 +86,8 @@ const viewAllBtn = document.getElementById('toggle');
 
 if (viewAllBtn) {
   viewAllBtn.addEventListener('click', () => {
-    window.location.href = 'restaurants.html';
+    window.history.pushState({}, '', '/restaurants');
+    router();
   });
 };
 
