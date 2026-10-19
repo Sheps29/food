@@ -1,6 +1,49 @@
 import '/src/styles/style.css'
 const images = import.meta.glob('../images/*.{png,svg}', { eager: true })
 
+function router() {
+  const path = window.location.pathname;
+
+  if (path === '/' || path === 'index/html') {
+    loadMainPage();
+    return;
+  }
+
+  if (path === '/restaurants' || path === 'restaurants.html') {
+    loadRestaurantsPage();
+    return;
+  }
+
+  window.history.pushState({}, '', '/');
+}
+
+function loadMainPage() {
+  const app = document.getElementById('app');
+  if (app) app.innerHTML = '';
+}
+
+function loadRestaurantsPage() {
+  fetch('/src/pages/restaurants.html')
+  .then(res => res.text())
+  .then(html => {
+    const app = document.getElementById('app');
+    app.innerHTML = html;
+
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = '/script.js';
+    document.body.appendChild(script);
+  })
+  .catch(() => {
+    console.error('Ошибка');
+  });
+}
+
+window.addEventListener('load', () => {
+  router();
+  window.addEventListener('popstate', router);
+});
+
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobile-menu');
 burger.addEventListener('click', () => {
@@ -55,11 +98,11 @@ const toggleBtn = document.getElementById('toggle2');
 const prevBtn =  document.getElementById('prev');
 const nextBtn =  document.getElementById('next');
 
-if (viewAllBtn) {
-  toggleBtn.addEventListener('click', () => {
-    window.location.href = 'restaurants.html';
-  });
-};
+// if (viewAllBtn) {
+//   toggleBtn.addEventListener('click', () => {
+//     window.location.href = 'restaurants.html';
+//   });
+// };
 
 const allRests = [
   { id: 1, name: 'Foodworld', food: ['Pizza', 'Burger', 'Noodles', 'Sandwich', 'Chowmein', 'Steak']},
