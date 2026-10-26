@@ -5,23 +5,15 @@ const mainContent = document.getElementById('app').innerHTML
 function router() {
   const path = window.location.pathname;
 
-  if (path === '/' || path === '/index.html') {
-    loadMainPage();
-    return;
-  }
-
-  if (path === '/restaurants' || path === '/restaurants.html') {
+  if (path === '/restaurants') {
     loadRestaurantsPage();
-    return;
+  } else {
+    loadMainPage();
   }
-
-  window.history.pushState({}, '', '/');
-  loadMainPage();
 }
 
 function loadMainPage() {
-  const app = document.getElementById('app');
-  if (app) app.innerHTML = mainContents;
+  app.innerHTML = mainContent;
 }
 
 function loadRestaurantsPage() {
@@ -36,10 +28,13 @@ function loadRestaurantsPage() {
   });
 }
 
-window.addEventListener('load', () => {
+document.getElementById('toggle').addEventListener('click', () => {
+  history.pushState({}, '', '/restaurants');
   router();
-  window.addEventListener('popstate', router);
 });
+  
+window.addEventListener('popstate', router);
+router();
 
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -96,12 +91,6 @@ const toggleBtn = document.getElementById('toggle2');
 const prevBtn =  document.getElementById('prev');
 const nextBtn =  document.getElementById('next');
 
-// if (viewAllBtn) {
-//   toggleBtn.addEventListener('click', () => {
-//     window.location.href = 'restaurants.html';
-//   });
-// };
-
 const allRests = [
   { id: 1, name: 'Foodworld', food: ['Pizza', 'Burger', 'Noodles', 'Sandwich', 'Chowmein', 'Steak']},
   { id: 2, name: 'Pizzahub', food: ['Pizza']},
@@ -114,12 +103,12 @@ const allRests = [
 ];
 
 const categoryPages = {
-  'Pizza': 'pizza.html',
-  'Burger': 'burger.html',
-  'Noodles': 'noodles.html',
-  'Sandwich': 'sandwich.html',
-  'Chowmein': 'chowmein.html',
-  'Steak': 'steak.html'
+  'Pizza': '/src/pages/pizza.html',
+  'Burger': '/src/pages/burger.html',
+  'Noodles': '/src/pages/noodles.html',
+  'Sub-sandwich': '/src/pages/sandwich.html',
+  'Chowmein': '/src/pages/chowmein.html',
+  'Steak': '/src/pages/steak.html'
 };
 
 foodList.addEventListener('click', (e) => {
