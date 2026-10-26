@@ -1,5 +1,4 @@
-import '/src/styles/style.css'
-const images = import.meta.glob('../images/*.{png,svg}', { eager: true })
+import '/src/styles/style.scss'
 const app = document.getElementById('app');
 const mainContent = app.innerHTML;
 
@@ -29,11 +28,14 @@ function loadRestaurantsPage() {
   });
 }
 
-document.getElementById('toggle').addEventListener('click', () => {
+app.addEventListener('click', (event) => {
+  const button = event.target.closest('#toggle');
+  if (!button) return;
+
   history.pushState({}, '', '/restaurants');
   router();
 });
-  
+
 window.addEventListener('popstate', router);
 router();
 
@@ -91,7 +93,7 @@ list.addEventListener('click', (event) => {
   productModalImage.src = card.querySelector('picture img').src;
   productModalTitle.textContent = card.querySelector('h4').textContent;
   productModalRestaurant.textContent =
-    card.querySelector('a').textContent.trim();
+    card.querySelector('a').textContent;
   productModalPrice.textContent =
     card.querySelector('span').textContent;
 
@@ -103,20 +105,8 @@ productModalClose.addEventListener('click', () => {
 });
 
 const foodList = document.getElementById('food-list');
-const toggleBtn = document.getElementById('toggle2');
 const prevBtn =  document.getElementById('prev');
 const nextBtn =  document.getElementById('next');
-
-const allRests = [
-  { id: 1, name: 'Foodworld', food: ['Pizza', 'Burger', 'Noodles', 'Sandwich', 'Chowmein', 'Steak']},
-  { id: 2, name: 'Pizzahub', food: ['Pizza']},
-  { id: 3, name: 'Donuts hut', food: ['Sandwich']},
-  { id: 4, name: 'Subwey', food: ['Sandwich']},
-  { id: 5, name: 'Ruby Tuesday', food: ['Steak']},
-  { id: 6, name: 'Kuakata Fried Chicken', food: ['Burger']},
-  { id: 7, name: 'Red Square', food: ['Chowmein']},
-  { id: 8, name: 'Taco Bell', food: ['Noodles']},
-];
 
 const categoryPages = {
   'Pizza': '/src/pages/pizza.html',
