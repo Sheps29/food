@@ -1,6 +1,7 @@
 import '/src/styles/style.css'
 const images = import.meta.glob('../images/*.{png,svg}', { eager: true })
-const mainContent = document.getElementById('app').innerHTML
+const app = document.getElementById('app');
+const mainContent = app.innerHTML;
 
 function router() {
   const path = window.location.pathname;
@@ -77,14 +78,29 @@ leftBtn.addEventListener('click', () => {
   list.scrollBy({left: -scrollWidth, behavior: 'smooth'});
 });
 
-const viewAllBtn = document.getElementById('toggle');
+const productModal = document.getElementById('product-modal');
+const productModalImage = document.getElementById('product-modal-image');
+const productModalTitle = document.getElementById('product-modal-title');
+const productModalRestaurant = document.getElementById('product-modal-restaurant');
+const productModalPrice = document.getElementById('product-modal-price');
+const productModalClose = document.getElementById('product-modal-close');
 
-if (viewAllBtn) {
-  viewAllBtn.addEventListener('click', () => {
-    window.history.pushState({}, '', '/restaurants');
-    router();
-  });
-};
+list.addEventListener('click', (event) => {
+  const card = event.target.closest('li');
+
+  productModalImage.src = card.querySelector('picture img').src;
+  productModalTitle.textContent = card.querySelector('h4').textContent;
+  productModalRestaurant.textContent =
+    card.querySelector('a').textContent.trim();
+  productModalPrice.textContent =
+    card.querySelector('span').textContent;
+
+  productModal.classList.add('active');
+});
+
+productModalClose.addEventListener('click', () => {
+  productModal.classList.remove('active');
+});
 
 const foodList = document.getElementById('food-list');
 const toggleBtn = document.getElementById('toggle2');

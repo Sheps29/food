@@ -194,7 +194,7 @@ header .mobile-menu.active {
 }
 .modal .modal-content .close-modal img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   height: auto;
 }
